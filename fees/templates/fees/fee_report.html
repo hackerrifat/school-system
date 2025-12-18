@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h2>Fee Report</h2>
+
+<table border="1">
+    <tr>
+        <th>Month</th>
+        <th>Amount</th>
+        <th>Status</th>
+    </tr>
+
+    {% for fee in fees %}
+    <tr>
+        <td>{{ fee.month }}</td>
+        <td>{{ fee.amount }}</td>
+        <td>
+            {% if fee.paid %}
+                Paid
+            {% else %}
+                Due
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

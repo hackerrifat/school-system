@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Management System</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+        .navbar {
+            background: #2c3e50;
+            padding: 10px;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+        }
+        .btn {
+            padding: 8px 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-danger {
+            background: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/accounts/dashboard/">Dashboard</a>
+    <a href="/attendance/report/">Attendance</a>
+
+    <form method="post" action="/accounts/logout/" style="display:inline;">
+        {% csrf_token %}
+        <button class="btn btn-danger">Logout</button>
+    </form>
+</div>
+
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>
